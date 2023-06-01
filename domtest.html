@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .new1{
+            width: 250px;
+            height: 250px;
+            padding: 10px;
+            border: 1px solid #fff;
+            background-color: black;
+            color: #fff;
+        }
+
+
+    </style>
+</head>
+<body>
+    <p id="hello"></p>
+    <p class="harry"></p>
+    <p class="tagname"></p>
+    
+</body>
+
+
+<script>
+        var ok;
+        
+        // getElementById
+        // getElementsByClassName
+        // getElementsByTagName
+
+        ok=document.getElementById('hello').innerText="hello world";
+        ok=document.getElementsByClassName('harry')[0].innerText="na kr yr koi to acha kam kia kr";
+        ok=document.getElementsByTagName('p')[2].innerText="hello g";
+
+       // querySelector css
+
+        document.querySelector('#hello').style.backgroundColor= "#000" ;
+        document.querySelector('#hello').style.color= "#fff" ;
+        document.querySelector('#hello').style.padding= "5px" ;
+
+        // querySelector Class
+        document.querySelector('#hello').className();
+
+
+
+
+
+
+
+        console.log(ok)
+</script>
+
+</html>

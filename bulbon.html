@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<img id="b2" src="img/pic_bulboff.gif" style="width:100px"><br>
+<button id="b1" onclick="on_off()">Turn on the light</button>
+
+<script>
+
+    function on_off (){
+       var x=document.getElementById("b1").innerHTML;
+
+        if (x=="Turn on the light"){
+        var x = "Turn off the light";
+        document.getElementById("b1").innerHTML = x;
+        document.getElementById('b2').src="img/pic_bulbon.gif";
+    }else{
+        x = "Turn on the light";
+        document.getElementById("b1").innerHTML = x;
+        document.getElementById('b2').src="img/pic_bulboff.gif";
+    }
+    }
+
+    
+</script>
+
+
+</body>
+</html>

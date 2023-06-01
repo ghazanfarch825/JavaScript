@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="style23.css" />
+    <title>calculator</title>
+  </head>
+  <body>
+    <div class="calculator">
+      <div class="input-bar">
+        <h2 id="input"></h2>
+      </div>
+
+      <table>
+        <tr>
+          <td><button onclick="_clear()">C</button></td>
+          <td><button onclick="_backspace()"><</button></td>
+          <td><button onclick="_operator('+')">+</button></td>
+          <td><button onclick="_operator('-')">-</button></td>
+          <td><button onclick="_sin()">sin</button></td>
+          <td><button onclick="_operator('^')">^</button></td>
+          <td rowspan="2">
+            <button style="height: 65px" onclick="_exp()">Exp</button>
+          </td>
+        </tr>
+        <tr>
+          <td><button onclick="_displayval(this.innerHTML)">1</button></td>
+          <td><button onclick="_displayval(this.innerHTML)">2</button></td>
+          <td><button onclick="_displayval(3)">3</button></td>
+          <td><button onclick="_operator('*')">*</button></td>
+          <td><button onclick="_cos()">Cos</button></td>
+          <td><button onclick="_deg()">Deg</button></td>
+        </tr>
+
+        <tr>
+          <td><button onclick="_displayval(this.innerHTML)">4</button></td>
+          <td><button onclick="_displayval(this.innerHTML)">5</button></td>
+          <td><button onclick="_displayval(this.innerHTML)">6</button></td>
+          <td><button onclick="_operator('/')">/</button></td>
+          <td><button onclick="_tan()">tan</button></td>
+          <td><button onclick="_rad()">Rad</button></td>
+          <td><button onclick="_log()">log</button></td>
+        </tr>
+
+        <tr>
+          <td><button onclick="_displayval(this.innerHTML)">7</button></td>
+          <td><button onclick="_displayval(this.innerHTML)">8</button></td>
+          <td><button onclick="_displayval(this.innerHTML)">9</button></td>
+          <td><button onclick="_sqrt()">sqrt</button></td>
+          <td><button onclick="_displayval(this.innerHTML)">(</button></td>
+          <td rowspan="2">
+            <button style="height: 65px" onclick="_log()">ln</button>
+          </td>
+          <td rowspan="2">
+            <button onclick="_result()" style="height: 65px">=</button>
+          </td>
+        </tr>
+
+        <tr>
+          <td colspan="2">
+            <button
+              onclick="_displayval(this.innerHTML)"
+              style="width: 100px; height: 30px"
+            >
+              0
+            </button>
+          </td>
+          <td><button>.</button></td>
+          <td><button onclick="_operator('%')">%</button></td>
+          <td><button onclick="_displayval(this.innerHTML)">)</button></td>
+        </tr>
+      </table>
+    </div>
+  </body>
+  <script>
+    var oper, v1, v2, result;
+    function _clear() {
+      document.getElementById("input").innerHTML = 0;
+    }
+    function _displayval(x) {
+      var len = document.getElementById("input").innerHTML;
+      if (len.length < 10) {
+        if (len == 0) {
+          document.getElementById("input").innerHTML = "";
+        }
+        document.getElementById("input").innerHTML += x;
+      } else {
+        alert("Already Ten digits in Input");
+      }
+    }
+    function _operator(op) {
+      v1 = document.getElementById("input").innerHTML;
+      document.getElementById("input").innerHTML = "";
+      oper = op;
+    }
+    function _result() {
+      v2 = document.getElementById("input").innerHTML;
+      switch (oper) {
+        case "+":
+          result = parseInt(v1) + parseInt(v2);
+          break;
+
+        case "-":
+          result = parseInt(v1) - parseInt(v2);
+          break;
+
+        case "/":
+          result = parseInt(v1) / parseInt(v2);
+          break;
+
+        case "*":
+          result = parseInt(v1) * parseInt(v2);
+          break;
+
+        case "%":
+          result = (parseInt(v1) / parseInt(v2)) * 100;
+          break;
+
+        case "^":
+          result = Math.pow(parseInt(v1), parseInt(v2));
+          break;
+      }
+      document.getElementById("input").innerHTML = result;
+    }
+
+    function _sqrt() {
+      var x = document.getElementById("input").innerHTML;
+      document.getElementById("input").innerHTML = Math.sqrt(x);
+    }
+    function _sin() {
+      var x = document.getElementById("input").innerHTML;
+      document.getElementById("input").innerHTML = Math.sin(x);
+    }
+    function _cos() {
+      var x = document.getElementById("input").innerHTML;
+      document.getElementById("input").innerHTML = Math.cos(x);
+    }
+    function _tan() {
+      var x = document.getElementById("input").innerHTML;
+      document.getElementById("input").innerHTML = Math.tan(x);
+    }
+    function _backspace() {
+      var x = document.getElementById("input").innerHTML;
+      var y = x.toString();
+      document.getElementById("input").innerHTML = y.substring(0, x.length - 1);
+    }
+    function _deg() {
+      var x = document.getElementById("input").innerHTML;
+      document.getElementById("input").innerHTML = x * (180 / Math.PI);
+    }
+    function _rad() {
+      var x = document.getElementById("input").innerHTML;
+      document.getElementById("input").innerHTML = x * (Math.PI / 180);
+    }
+
+    function _log() {
+      var x = document.getElementById("input").innerHTML;
+      document.getElementById("input").innerHTML = Math.log(x);
+    }
+
+    function _exp() {
+      var x = document.getElementById("input").innerHTML;
+      document.getElementById("input").innerHTML = Math.exp(x);
+    }
+  </script>
+</html>

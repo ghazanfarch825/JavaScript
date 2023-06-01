@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" value="celcius" id="x" />
+    <input type="text" value="fahrenhiet" id="y" />
+    <input type="text" value="kelvin" id="z" />
+    <br /><br />
+    <button onclick="toC()">Celcius</button>
+    <button onclick="toF()">Fahrenhiet</button>
+    <button onclick="toK()">Kelvin</button>
+    <br /><br />
+    <button onclick="reset()" id="reset">reset</button>
+    <h5 id="result"></h5>
+  </body>
+  <script>
+    function toC() {
+      var x = document.getElementById("x").value;
+      var y = document.getElementById("y").value;
+      var z = document.getElementById("z").value;
+      var a = x;
+      var b = ((32 * y - 32) * 5) / 9;
+      var c = z - 273.15;
+      document.getElementById("result").innerHTML =
+        "The result in celcius = " +
+        a +
+        "<br>" +
+        "The result in Fehrenhiet = " +
+        b +
+        "<br>" +
+        "The result in Kelvin = " +
+        c;
+    }
+    function toF() {
+      var x = document.getElementById("x").value;
+      var y = document.getElementById("y").value;
+      var z = document.getElementById("z").value;
+      var a = (x * 9) / 5 + 32;
+      var b = y;
+      var c = ((z - 273.15) * 9) / 5 + 32;
+      document.getElementById("result").innerHTML =
+        "The result in celcius = " +
+        a +
+        "<br>" +
+        "The result in Fehrenhiet = " +
+        b +
+        "<br>" +
+        "The result in Kelvin = " +
+        c;
+    }
+    function toK() {
+      var x = document.getElementById("x").value;
+      var y = document.getElementById("y").value;
+      var z = document.getElementById("z").value;
+      var a = x + 273.15;
+      var b = y;
+      var c = ((z - 32) * 5) / 9 + 273.15;
+      document.getElementById("result").innerHTML =
+        "The result in celcius = " +
+        a +
+        "<br>" +
+        "The result in Fehrenhiet = " +
+        b +
+        "<br>" +
+        "The result in Kelvin = " +
+        c;
+    }
+    function reset() {
+      document.getElementById("result").innerHTML = "";
+     
+    }
+  </script>
+</html>

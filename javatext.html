@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>crud in javaScript</title>
+
+    <!-- ========= bootstrap cdn ======== -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- ======= ican cdn ======= -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+
+    <!-- ====== jQuery cdn ====== -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+    <h2 class="text-center pt-5">STUDENTS REGISTRATION FORM</h2>
+    <div class="container mt-5 mb-5">
+        <div class="row">
+            <div class="col-md-4 col-12">
+               <div class="bg-secondary rounded p-3 mt-3">
+                <form action="" id="form">
+                    <div class="form-outline mb-4">
+                        <label class="form-label mt-2" for="name">Name</label>
+                        <input type="text" id="name" class="form-control form-control-lg" />
+                    </div>  
+
+                    <div class="form-outline mb-4">
+                        <label class="form-label" for="fathername">Father Name</label>
+                        <input type="text" id="fathername" class="form-control form-control-lg" />
+                    </div>
+
+                    <div class="form-outline mb-4">
+                        <label class="form-label" for="city">City</label>
+                        <input type="text" id="city" class="form-control form-control-lg" />
+                    </div>
+
+                    <div class="d-md-flex justify-content-start align-items-center mb-4 py-2">
+                        <h5 class="mb-0 me-4">Gender: </h5>
+                        <div class="form-check form-check-inline mb-0 me-4">
+                        <input class="form-check-input" type="radio" name="gender" id="femaleGender" value="Female" />
+                        <label class="form-check-label" for="femaleGender">Female</label>
+                        </div>
+    
+                        <div class="form-check form-check-inline mb-0 me-4">
+                        <input class="form-check-input" name="gender" type="radio" id="maleGender" value="Male" />
+                        <label class="form-check-label" for="maleGender">Male</label>
+                        </div>
+                    </div>
+
+                    <div class="form-outline mb-4">
+                        <label class="form-label" for="institute">Institute</label>
+                        <input type="text" id="institute" class="form-control form-control-lg" />
+                    </div>
+
+                    <div class="form-outline mb-4">
+                        <label class="form-label" for="course">Course</label>
+                        <input type="text" id="course" class="form-control form-control-lg" />
+                    </div>
+
+                    <div class="form-outline mb-4">
+                        <label class="form-label" for="email">Email ID</label>
+                        <input type="text" id="email" class="form-control form-control-lg" />
+                    </div>
+
+                    <div class="form-outline mb-4">
+                        <label class="form-label" for="Password">Password</label>
+                        <input type="text" id="Password" class="form-control form-control-lg" />
+                    </div>
+                    
+                    <div class="d-flex justify-content-end mb-4">
+                        <button type="button" class="btn btn-danger btn-lg ms-2" id="ADD_btn" onclick="ADD()"><i class="fa fa-plus"></i> ADD</button>
+                        <button type="button" class="btn btn-primary btn-lg ms-2" id="Update_btn" style="display: none;" onclick="Update()"><i class="fa fa-clock"></i> Update</button>
+                    </div>
+               </form>
+               </div>
+            </div>
+        </div>
+    </div>
+
+
+<script>
+    // add button 
+    function ADD(){   
+            let sname, fname, city_name, gender, institute_name, course_name, email, password  
+            sname = $('#name').val();
+            fname = $('#fathername').val();
+            city_name = $('#city').val();
+            gender = $("input[name='gender']:checked").val();
+            institute_name = $('#institute').val();
+            course_name = $('#course').val();
+            email= $('#email').val();
+            password = $('#Password').val();       
+        if(sname != '' && fname != '' && city_name != '' && gender != '' && institute_name != '' && course_name != '' && email != '' && password != ''){
+            $('.row').append(' <div class="col-md-3 col-12 mt-3 pb-3 main_box"> <div class="mt-4 bg-success rounded p-3"> <div class="fw-bold">Name</div> <p class="mb-5 student_name">'+ sname +'</p> <div class="fw-bold">Father Name</div> <P class="mb-5 father_name">'+ fname +' </P> <div class="fw-bold">City</div> <p class="mb-5 city_name">'+ city_name +'</p> <div class="fw-bold">Gender</div> <p class="mb-5 gender">'+ gender +'</p> <div class="fw-bold">Institute</div> <p class="mb-5 institute_name">'+ institute_name +'</p> <div class="fw-bold">Course</div> <p class="mb-5 course">'+ course_name +'</p> <div class="fw-bold">Email ID</div> <p class="mb-5 email_id">'+ email +'</p> <div class="fw-bold">Password</div> <p class="mb-5 password_text">' + password + '</p> <div class="d-flex justify-content-end"> <button type="button" onclick="edit(this)" class="btn btn-info text-white btn-lg ms-2"><i class="fa fa-edit"></i></button> <button type="button" onclick="delet(this)" class="btn btn-danger btn-lg ms-2"><i class="fa fa-trash"></i></button> </div> </div> </div>')
+            $('#form').trigger('reset');
+        } 
+        else{
+            alert("Please fill all the fields");
+        }
+    }
+
+    // delet button 
+    function delet(d) {
+        $(d).parents(".main_box").remove();
+    }
+
+    // edit button 
+    let finder;
+    function edit(e) {
+        finder = $(e).closest('.main_box');
+        
+     let sname, fname, city_name, gender, institute_name, course_name, email, password 
+        sname = finder.find('.student_name').text();
+        fname = finder.find('.father_name').text();
+        city_name = finder.find('.city_name').text();
+        gender = finder.find('.gender').text();
+        institute_name = finder.find('.institute_name').text();
+        course_name = finder.find('.course').text();
+        email = finder.find('.email_id').text();
+        password = finder.find('.password_text').text();
+
+        $('#name').val(sname);
+        $('#fathername').val(fname);
+        $('#city').val(city_name);
+        $("input[name='gender'][value="+gender+"]").prop("checked", true);
+        $('#institute').val(institute_name);
+        $('#course').val(course_name);
+        $('#email').val(email);
+        $('#Password').val(password);
+        $("#ADD_btn").hide();
+        $("#Update_btn").show();
+    }   
+
+    // update button
+    function Update(){
+        let sname, fname, city_name, gender, institute_name, course_name, email, password ;
+            sname = $('#name').val();
+            fname = $('#fathername').val();
+            city_name = $('#city').val();
+            gender = $("input[name='gender']:checked").val();
+            institute_name = $('#institute').val();
+            course_name = $('#course').val();
+            email= $('#email').val();
+            password = $('#Password').val();
+                        
+        if(sname != '' && fname != '' && city_name != '' && gender != '' && institute_name != '' && course_name != '' && email != '' && password != ''){  
+        finder.find('.student_name').text(sname);
+        finder.find('.father_name').text(fname);
+        finder.find('.city_name').text(city_name);
+        finder.find('.gender').text(gender);
+        finder.find('.institute_name').text(institute_name);
+        finder.find('.course').text(course_name);
+        finder.find('.email_id').text(email);
+        finder.find('.password_text').text(password);
+
+        $("#Update_btn").hide();
+        $("#ADD_btn").show();
+        $('#form').trigger('reset');
+        } else {
+            alert("please fill the fields");
+        }
+    }
+</script>
+</body>
+</html>

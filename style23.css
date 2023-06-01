@@ -1,0 +1,40 @@
+body{
+    display: flex;
+    justify-content: center;
+}
+.calculator{
+    width: 377px;
+    margin-top: 100px;
+    
+
+}
+#input{
+  /* height: 65px; */
+  font-size: 30px;
+  
+}
+
+
+.input-bar {
+
+    border: 2px solid #3aa5b7 ;
+    border-radius: 10px;
+    height: 60px;
+    /* display: flex;
+    align-items: center; */
+}
+
+button{
+    width: 50px;
+    height: 30px;
+    background-color: #3aa5b7;
+    color: white;
+    border: 0px;
+}
+button:hover {
+
+    background-color: white;
+    color: black;
+    transition-duration: 0.7s;
+    border: 3px solid #3aa5b7;
+}

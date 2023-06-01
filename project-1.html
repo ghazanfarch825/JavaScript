@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <input id="even_no" type="number">
+    <input id="odd_no" type="number">
+    <button type="button" onclick="even_f()">even</button>
+    <button type="button" onclick="odd_f()">odd</button>
+
+    <ul id="output"></ul>
+
+    <script>
+
+//         function even_f(){
+//             var a1=parseInt(document.getElementById("even_no").value)
+//             var showoutput =document.getElementById("output");
+//             var arr = [];
+//             showoutput.innerHTML = "";   
+//             for (let i = 2; i < a1 ; i+= 2){
+//                arr.push(i) 
+//             }
+// showoutput.innerHTML = arr.join(",")
+//               }       
+            function even_f(){
+            var a1=document.getElementById("even_no").value;
+            for (let i = 1; i <= a1 ; i++){
+                if(i%2==0){
+          document.getElementById("output").innerHTML +="this is even" + " " + i  + "<br>";
+          console.log(i)
+         }
+        }
+            }
+
+            function odd_f(){
+            var a1=document.getElementById("odd_no").value;
+            for (let i = 1; i <= a1 ; i++){
+                if(i%2!==0){
+          document.getElementById("output").innerHTML +="this is odd" + " " + i  + "<br>";
+          console.log(i)
+         }
+        }
+            }
+
+        
+
+    </script>
+
+      
+
+
+
+</body>
+</html>

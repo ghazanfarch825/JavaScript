@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    
+<!-- QUESTION NO # 1 -->
+    <input type="number" id="print even">
+    <input type="number" id="print odd">
+    <button onclick="even()">Even</button>
+    <button onclick="odd()">Odd</button>
+    <p id="demo"></p>
+    <p id="demo1"></p>
+    <script>
+    function even(){
+        var inputvalue1=document.getElementById("print even").value;
+        var inputvalue2=document.getElementById("print odd").value;
+        for (var inputvalue1=1 ; inputvalue1 <= inputvalue2 ; inputvalue1++) 
+        {
+         if(inputvalue1%2==0)
+         {
+          document.getElementById("demo").innerHTML +="this is even" + " " + inputvalue1  + "<br>";
+          console.log(inputvalue1)
+         }
+        }
+    }
+    function odd(){
+        var inputvalue1=document.getElementById("print even").value;
+        var inputvalue2=document.getElementById("print odd").value;
+        for (inputvalue1=1 ; inputvalue1 <= inputvalue2 ; inputvalue1++) 
+        {
+         if(inputvalue1%2!==0)
+         {
+          document.getElementById("demo1").innerHTML +="this is odd" + " " + inputvalue1 + "<br>";
+          console.log(inputvalue2)
+         }
+        }
+    }
+          </script>
+        <!-- QUESTION NO # 1 END HERE -->
+</body>
+</html>
+
+    
